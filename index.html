@@ -1,6 +1,62 @@
+<!DOCTYPE html>
 <html>
-    <head>
-        <title>Hola mi amor</title>
-        <script src="JS/exercicis1.js"></script>
-    </head>
+<head>
+    <title>Número Wordle</title>
+    <link rel="stylesheet" type="text/css" href="CSS/style.css">
+    <script src="JS/wordle.js"></script>
+</head>
+<body>
+    <h1>Número Wordle</h1>
+    <div class="wordle-container">
+        <div class="number-input">
+            <input type="text" id="guess" maxlength="5">
+            <button onclick="checkGuess()">Adivinar</button>
+        </div>
+        <div class="attempts">
+            <p>Intentos restantes: <span id="attempts">6</span></p>
+        </div>
+        <div class="result">
+            <p id="result-message"></p>
+        </div>
+        <div class="guesses">
+            <div id="guesses-container">
+                <div class="guess">
+                    <div class="initial">*</div>
+                    <div class="initial">*</div>
+                    <div class="initial">*</div>
+                    <div class="initial">*</div>
+                    <div class="initial">*</div>
+                </div>
+                <div class="guess">
+                    <div class="initial">*</div>
+                    <div class="initial">*</div>
+                    <div class="initial">*</div>
+                    <div class="initial">*</div>
+                    <div class="initial">*</div>
+                </div>
+                <div class="guess">
+                    <div class="initial">*</div>
+                    <div class="initial">*</div>
+                    <div class="initial">*</div>
+                    <div class="initial">*</div>
+                    <div class="initial">*</div>
+                </div>
+                <div class="guess">
+                    <div class="initial">*</div>
+                    <div class="initial">*</div>
+                    <div class="initial">*</div>
+                    <div class="initial">*</div>
+                    <div class="initial">*</div>
+                </div>
+                <div class="guess">
+                    <div class="initial">*</div>
+                    <div class="initial">*</div>
+                    <div class="initial">*</div>
+                    <div class="initial">*</div>
+                    <div class="initial">*</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
 </html>

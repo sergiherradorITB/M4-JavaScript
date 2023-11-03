@@ -35,8 +35,14 @@ function obtenirAtributs(){
 
 // DOMExercici5.js
 
-function insertarFila(){
-    var row = document.getElementsByTagName("tbody")[0];
-    var x = row.insertCell(-1);
-    x.innerHTML="<tr><td>Fila hola </td> </tr>";
-}
+function insertarFila() {
+    var table = document.getElementById("Taula");
+    var newRow = table.insertRow(0);
+  
+    var cell1 = newRow.insertCell(0);
+    var cell2 = newRow.insertCell(1);
+  
+    cell1.innerHTML = "Fila nueva cel·la 1";
+    cell2.innerHTML = "Fila nueva cel·la 2";
+  }
+  
