@@ -1,60 +1,93 @@
-const targetNumber = generateRandomNumber();
-let attempts = 6;
-let previousGuesses = [];
+// Variables globales
+const maxIteracion = 5; // Número de filas en la sección RESULT
+let numeroSecreto = generarNumeroSecreto(); // Genera un número secreto aleatorio
+let iteracion = 0; // Número de iteración actual
 
-function generateRandomNumber() {
-    return Math.floor(Math.random() * 100000);
+// Función para generar un número secreto de 5 dígitos
+function generarNumeroSecreto() {
+    let numero = "";
+    for (let i = 0; i < 5; i++) {
+        numero += Math.floor(Math.random() * 10);
+    }
+    return numero;
 }
 
-function checkGuess() {
-    const guessInput = document.getElementById("guess");
-    const resultMessage = document.getElementById("result-message");
-    const attemptsSpan = document.getElementById("attempts");
-    const guessesContainer = document.getElementById("guesses-container");
+// Función para comprobar el número ingresado por el usuario
+function comprobarNumero() {
+    const inputNumero = document.getElementById("numero");
+    const resultadoFila = document.getElementById("resultadoFila");
+    const celdas = resultadoFila.getElementsByClassName("gray-box");
+    const numeroUsuario = inputNumero.value;
+    inputNumero.value = ""; // Limpiar el input
 
-    const guess = guessInput.value;
+    if (numeroUsuario.length !== 5 || isNaN(numeroUsuario)) {
+        alert("Por favor, ingrese un número de 5 dígitos.");
+        return;
+    }
 
-    if (guess.length !== 5 || isNaN(guess)) {
-        resultMessage.textContent = "Ingresa un número válido de 5 dígitos.";
-    } else if (guess === targetNumber) {
-        resultMessage.textContent = "¡Felicidades! Has adivinado el número.";
-        guessInput.disabled = true;
-    } else {
-        attempts--;
-        attemptsSpan.textContent = attempts;
-
-        if (attempts === 0) {
-            resultMessage.textContent = `¡Agotaste tus intentos! El número correcto era ${targetNumber}.`;
-            guessInput.disabled = true;
+    for (let i = 0; i < 5; i++) {
+        celdas[i].textContent = numeroUsuario[i];
+        if (numeroUsuario[i] === numeroSecreto[i]) {
+            celdas[i].style.backgroundColor = "green";
+        } else if (numeroSecreto.includes(numeroUsuario[i])) {
+            celdas[i].style.backgroundColor = "yellow";
         } else {
-            resultMessage.textContent = "Intenta de nuevo.";
-            previousGuesses.push(guess);
-            displayGuesses(guessesContainer);
+            celdas[i].style.backgroundColor = "darkgray";
         }
     }
-    guessInput.value = '';
+
+    iteracion++;
+
+    if (numeroUsuario === numeroSecreto) {
+        alert("¡Has adivinado el número secreto!");
+        mostrarNumeroSecreto();
+    } else if (iteracion == maxIteracion) {
+        mostrarIntentoActual(iteracion);
+        mostrarMensajeFinal(numeroSecreto);
+        mostrarNumeroSecreto();
+        const nuevaFila = resultadoFila.cloneNode(true);
+        nuevaFila.id = `resultadoFila${iteracion}`;
+        document.querySelector("main").appendChild(nuevaFila);
+    } else if (iteracion < maxIteracion) {
+        mostrarIntentoActual(iteracion);
+        if (iteracion > 1) {
+        const nuevaFila = resultadoFila.cloneNode(true);
+        nuevaFila.id = `resultadoFila${iteracion}`;
+        document.querySelector("main").appendChild(nuevaFila);
+    }
 }
 
-function displayGuesses(container) {
-    const guessDivs = container.querySelectorAll(".guess");
-    const lastGuessDiv = guessDivs[previousGuesses.length - 1];
-    const guessValues = previousGuesses[previousGuesses.length - 1].split('');
+// Función para mostrar el intento actual
+function mostrarIntentoActual(intento) {
+    const intentosMensaje = document.getElementById("intentosMensaje");
+    intentosMensaje.textContent = `Intento actual: ${intento}`;
+    intentosMensaje.style.display = "block";
+}
 
-    const digitDivs = lastGuessDiv.querySelectorAll(".initial");
+// Función para mostrar el mensaje al finalizar los intentos
+function mostrarMensajeFinal(numeroSecreto) {
+    const mensajeResultado = document.getElementById("mensajeResultado");
+    mensajeResultado.textContent = `¡Has agotado tus intentos! El número secreto era: ${numeroSecreto}`;
+    mensajeResultado.style.display = "block";
+}
 
-    guessValues.forEach((value, index) => {
-        if (value === targetNumber[index]) {
-            digitDivs[index].classList.remove("initial");
-            digitDivs[index].classList.add("correct-position");
-        } else if (targetNumber.includes(value)) {
-            digitDivs[index].classList.remove("initial");
-            digitDivs[index].classList.add("incorrect-position");
+// Función para mostrar el número secreto en los divs "blue-box"
+function mostrarNumeroSecreto() {
+    for (let i = 1; i <= 5; i++) {
+        const blueBox = document.getElementById(`blue-box-${i}`);
+        blueBox.textContent = numeroSecreto[i - 1];
+    }
+}
+
+// Función para inicializar las celdas de la sección RESULT
+function inicializarCeldas() {
+    for (let i = 0; i < maxIteracion; i++) {
+        const resultado = document.getElementsByClassName("gray-row")[i];
+        const celdas = resultado.getElementsByClassName("gray-box");
+        for (let j = 0; j < 5; j++) {
+            celdas[j].textContent = "*";
+            celdas[j].style.backgroundColor = "lightgray";
         }
-        digitDivs[index].textContent = value;
-    });
+    }
 }
-
-document.addEventListener("DOMContentLoaded", function() {
-    const guessButton = document.querySelector("button");
-    guessButton.addEventListener("click", checkGuess);
-});
+}

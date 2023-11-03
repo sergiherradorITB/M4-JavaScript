@@ -1,62 +1,33 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Número Wordle</title>
-    <link rel="stylesheet" type="text/css" href="CSS/style.css">
+    <link rel="stylesheet" type="text/css" href="/CSS/style.css">
     <script src="JS/wordle.js"></script>
 </head>
 <body>
-    <h1>Número Wordle</h1>
-    <div class="wordle-container">
-        <div class="number-input">
-            <input type="text" id="guess" maxlength="5">
-            <button onclick="checkGuess()">Adivinar</button>
-        </div>
-        <div class="attempts">
-            <p>Intentos restantes: <span id="attempts">6</span></p>
-        </div>
-        <div class="result">
-            <p id="result-message"></p>
-        </div>
-        <div class="guesses">
-            <div id="guesses-container">
-                <div class="guess">
-                    <div class="initial">*</div>
-                    <div class="initial">*</div>
-                    <div class="initial">*</div>
-                    <div class="initial">*</div>
-                    <div class="initial">*</div>
-                </div>
-                <div class="guess">
-                    <div class="initial">*</div>
-                    <div class="initial">*</div>
-                    <div class="initial">*</div>
-                    <div class="initial">*</div>
-                    <div class="initial">*</div>
-                </div>
-                <div class="guess">
-                    <div class="initial">*</div>
-                    <div class="initial">*</div>
-                    <div class="initial">*</div>
-                    <div class="initial">*</div>
-                    <div class="initial">*</div>
-                </div>
-                <div class="guess">
-                    <div class="initial">*</div>
-                    <div class="initial">*</div>
-                    <div class="initial">*</div>
-                    <div class="initial">*</div>
-                    <div class="initial">*</div>
-                </div>
-                <div class="guess">
-                    <div class="initial">*</div>
-                    <div class="initial">*</div>
-                    <div class="initial">*</div>
-                    <div class="initial">*</div>
-                    <div class="initial">*</div>
-                </div>
-            </div>
-        </div>
+<main>
+    <div class="container">
+    <h1>Adivina el número secreto</h1>
+    <div class="blue-box" id="blue-box-1">*</div>
+    <div class="blue-box" id="blue-box-2">*</div>
+    <div class="blue-box" id="blue-box-3">*</div>
+    <div class="blue-box" id="blue-box-4">*</div>
+    <div class="blue-box" id="blue-box-5">*</div>
+</div>
+    <div class="input-box">
+        <p>Escribe aquí un número:</p>
+        <input type="number" id="numero">
+        <button onclick="comprobarNumero()">Comprobar</button>
     </div>
-</body>
-</html>
+    <div class="container">
+        <p id="intentosMensaje"> </p>
+        <p id="mensajeResultado"> </p>
+    </div>
+    <div class="gray-row" id="resultadoFila">
+        <div class="gray-box">*</div>
+        <div class="gray-box">*</div>
+        <div class="gray-box">*</div>
+        <div class="gray-box">*</div>
+        <div class="gray-box">*</div>
+    </div>
+</main>

@@ -1,34 +1,66 @@
-/* Añade estos estilos al archivo CSS */
-.guesses {
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.container {
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+}
+
+h1 {
+    color: blue;
+    font-size: xx-large;
+}
+
+.blue-box {
+    background-color: #1aa1f0;
+    width: 5%;
+    border-radius: 10px;
+    height: 3vw;
+    text-align: center;
+    font-size: x-large;
+    line-height: 50px;
+    margin: 5px;
+    display: inline-block;
+}
+
+.input-box {
+    border: 1px solid blue;
+    padding: 10px;
+    margin-top: 10px;
+    width: 50%;
+    margin-left: 25%;
+    text-align: center;
+    font-size: xx-large;
+}
+
+button {
+    margin-left: 30%;
+    width: 40%;
+    margin-right: 30%;
+    margin-top: 1%;
+    font-size: xx-large
+}
+
+.gray-row {
+    text-align: center;
     margin-top: 20px;
-}
-
-.guess {
+    width: 60%;
+    margin-left: 20%;
     display: flex;
-    margin-bottom: 10px;
-}
+    font-size: xx-large;
 
-.guess > div {
-    width: 30px;
-    height: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 5px;
-    font-size: 16px;
-    border: 1px solid #ccc;
 }
-
-.correct-position {
-    background-color: green;
-    color: white;
-}
-
-.incorrect-position {
-    background-color: yellow;
-}
-
-.initial {
-    background-color: grey;
-    color: black;
+.gray-box {
+    background-color: gray;
+    width: 20%;
+    height: 5vw;
+    text-align: center;
+    line-height: 50px;
+    margin: 5px;
+    display: inline-block;
+    border-radius: 5px;
 }
