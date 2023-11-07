@@ -100,6 +100,7 @@ function mostrarMensajeFinal(numeroSecreto) {
         mensajeResultado.textContent = `¡Te han sobrado ${intentosRestantes} intentos! El número secreto era: ${numeroSecreto}`;
         mensajeResultado.style.display = "block";
     }
+
 }
 
 

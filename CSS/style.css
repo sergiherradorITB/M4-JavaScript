@@ -1,13 +1,43 @@
+html{
+    width: 100%;
+    height: 100%;
+    background-color: #1aa1f0;
+}
 body {
     margin: 0;
     padding: 0;
     width: 100%;
-    height: 100%;
+}
+.buttonRecargar {
+    background: #5E5DF0;
+    border-radius: 999px;
+    box-shadow: #5E5DF0 0 10px 20px -10px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-family: Inter,Helvetica,"Apple Color Emoji","Segoe UI Emoji",NotoColorEmoji,"Noto Color Emoji","Segoe UI Symbol","Android Emoji",EmojiSymbols,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans",sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 24px;
+    opacity: 1;
+    outline: 0 solid transparent;
+    padding: 8px 18px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: fit-content;
+    word-break: break-word;
+    border: 0;
+    margin-top: 1%;
+    margin-left: 2%;
 }
 
 main{
     background-color: aqua;
+    margin-left: 20%;
+    width: 60%;
     height: 100%;
+    margin-bottom: 100px
 }
 .container {
     width: 100%;
@@ -19,17 +49,19 @@ h1 {
     margin: 0;
     color: blue;
     font-size: xx-large;
+    margin-bottom: 2%;
 }
 
 .blue-box {
     background-color: #1aa1f0;
-    width: 5%;
+    width: 15%;
     border-radius: 10px;
-    height: 3vw;
+    height: 5vw;
     text-align: center;
-    font-size: x-large;
+    font-size: xx-large;
     line-height: 50px;
     margin: 5px;
+    margin-left: 2.5%;
     display: inline-block;
 }
 
@@ -37,17 +69,21 @@ h1 {
     border: 5px solid blue;
     padding: 10px;
     margin-top: 10px;
-    width: 50%;
-    margin-left: 25%;
+    width: 70%;
+    margin-left: 15%;
     text-align: center;
     font-size: xx-large;
 }
+#numero {
+    width: 70%;
+    font-size: large;
+    text-align: center;
+}
 
-button {
-    margin-left: 30%;
-    width: 40%;
-    margin-right: 30%;
-    margin-top: 1%;
+.buttonComprobar {
+    width: 100%;
+    margin: 0;
+    margin-top: 3%;
     font-size: xx-large;
 }
 
