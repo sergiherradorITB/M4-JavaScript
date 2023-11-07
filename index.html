@@ -1,33 +1,42 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" type="text/css" href="/CSS/style.css">
+    <link rel="stylesheet" type="text/css" href="CSS/style.css">
     <script src="JS/wordle.js"></script>
+
+
 </head>
 <body>
+    
 <main>
     <div class="container">
     <h1>Adivina el número secreto</h1>
+    <div class="boxes">
     <div class="blue-box" id="blue-box-1">*</div>
     <div class="blue-box" id="blue-box-2">*</div>
     <div class="blue-box" id="blue-box-3">*</div>
     <div class="blue-box" id="blue-box-4">*</div>
     <div class="blue-box" id="blue-box-5">*</div>
 </div>
+</div>
     <div class="input-box">
         <p>Escribe aquí un número:</p>
         <input type="number" id="numero">
         <button onclick="comprobarNumero()">Comprobar</button>
     </div>
-    <div class="container">
-        <p id="intentosMensaje"> </p>
-        <p id="mensajeResultado"> </p>
+    <div class="containerResultado">
+    <div class="container" id="divResultado">
+        <p id="intentosMensaje">Tienes 5 INTENTOS!</p>
+        <p id="mensajeResultado"></p>
     </div>
-    <div class="gray-row" id="resultadoFila">
-        <div class="gray-box">*</div>
-        <div class="gray-box">*</div>
-        <div class="gray-box">*</div>
-        <div class="gray-box">*</div>
-        <div class="gray-box">*</div>
+</div>
+    <div class="gray-row inicio" id="resultadoFila">
+        <div class="gray-box inicio">*</div>
+        <div class="gray-box inicio">*</div>
+        <div class="gray-box inicio">*</div>
+        <div class="gray-box inicio">*</div>
+        <div class="gray-box inicio">*</div>
     </div>
+
+
 </main>
