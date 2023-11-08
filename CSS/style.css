@@ -124,14 +124,17 @@ input{
 .image{
     width: 100%;
 }
+
 .botonFinalGanador {
     background-color: #00b200 ;
     border: none;
 }
+
 .botonFinalPerdedor{
     background-color: red ;
     border: none;
 }
+
 .gray-row {
     text-align: center;
     margin-top: 20px;

@@ -4,42 +4,38 @@ let numeroSecreto = generarNumeroSecreto(); // Genera un número secreto aleator
 let iteracion = 0; // Número de iteración actual
 let adivinado = false
 
-console.log(`Hey, te pego un chivatazo: ${numeroSecreto}`);
+console.log(`Hey, te pego un chivatazo: ${numeroSecreto}`); // mostramos en la consola un chivatazo para facilitar el testing
 
-// Inicialización
+// Inicialización de la iteracion
 mostrarIntentoActual(iteracion);
 
 // Función para generar un número secreto de 5 dígitos
 function generarNumeroSecreto() {
     return Math.floor(10000 + Math.random() * 90000).toString();
+    // cogemos un numero de 5 digitos y lo convertimos en string para luego recorrer posiciones
 }
 
 // Función para comprobar el número ingresado por el usuario
 function comprobarNumero() {
-    const inputNumero = document.getElementById("numero");
-    const numeroUsuario = inputNumero.value;
-    inputNumero.value = ""; // Limpiar el input
+    const inputNumero = document.getElementById("numero"); // cogemos el numero del usuario
+    const numeroUsuario = inputNumero.value; // cogemos el VALOR del usuario
+    inputNumero.value = ""; // Limpiamos el input
 
-    if (adivinado) {
+    if (adivinado) { // si está adivinado mostramos el intento y no hacemos nada mas
         mostrarIntentoActual(iteracion);
         return;
     }
 
-    if (numeroUsuario.length !== 5 || isNaN(numeroUsuario)) {
+    if (numeroUsuario.length !== 5 || isNaN(numeroUsuario)) { // si el numero introducido es nulo o no tiene longitud 5 mostramos una alerta
         alert("Por favor, ingrese un número de 5 dígitos.");
         return;
     }
 
-    if (iteracion >= maxIteracion) {
+    if (iteracion >= maxIteracion) { // si intenta comprobar cuando está en el intento 5 o más que muestre alerta
         alert("Manito te has colao!")
         return; // No realizar ninguna acción adicional si se alcanzó el máximo de intentos
     }
 
-    // Eliminar todas las filas con la clase "inicio"
-    const filasInicio = document.querySelectorAll(".gray-row.inicio");
-    filasInicio.forEach((fila) => {
-        fila.remove();
-    });
 
     const resultadoFila = document.createElement("div");
     resultadoFila.className = "gray-row";
@@ -123,4 +119,3 @@ function ganador() {
     mensajeResultado.style.display = "block";
     document.getElementById("imagenGuapa").innerHTML='<button class="botonFinalGanador" onClick="window.location.reload();"><img class="image" src="images/image1.png"/></button> <br> <p>Dale click a la imagen o arriba a la izquierda para volver a jugar</p>';
 }
-
