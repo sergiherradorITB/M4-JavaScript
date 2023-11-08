@@ -36,38 +36,39 @@ function comprobarNumero() {
         return; // No realizar ninguna acción adicional si se alcanzó el máximo de intentos
     }
 
-
+    // cogemos el resultadoFila como creacion elemento de div
     const resultadoFila = document.createElement("div");
-    resultadoFila.className = "gray-row";
+    resultadoFila.className = "gray-row"; // añadimos al div la clase de gray-row
     const celdas = [];
 
-    for (let i = 0; i < 5; i++) {
-        const celda = document.createElement("div");
-        celda.className = "gray-box";
-        celda.textContent = numeroUsuario[i];
-        if (numeroUsuario[i] === numeroSecreto[i]) {
+    for (let i = 0; i < 5; i++) { // hacemos que hasta que lleguemos a 5 hagamos esto, como empieza en 0 haremos 5
+        const celda = document.createElement("div"); // creamos un div en celda
+        celda.className = "gray-box"; // le asignamos la clase gray-box al div creado
+        celda.textContent = numeroUsuario[i]; // hacemos que el contenido del div sea la posicion (iteracion) de la string
+        if (numeroUsuario[i] === numeroSecreto[i]) { // si el numero es el mismo en la posicion (iteracion) que la posicion (iteracion) del secreto mostramos verde
             celda.style.backgroundColor = "#00cd00";
-        } else if (numeroSecreto.includes(numeroUsuario[i])) {
+        } else if (numeroSecreto.includes(numeroUsuario[i])) { // si el numero secreto contiene el numero introducido pero no está en la posicion mostramos amarillo
             celda.style.backgroundColor = "#ffd731";
-        } else {
+        } else { // si no se cumple nada es que no está ni lo contiene así que mostramos gris oscuro
             celda.style.backgroundColor = "darkgray";
         }
         celdas.push(celda);
-        resultadoFila.appendChild(celda);
+        resultadoFila.appendChild(celda); 
     }
 
-    iteracion++;
+    iteracion++; // una vez hecha la row sumamos la iteracion
 
-    if (numeroUsuario === numeroSecreto) {
-        adivinado = true;
-        ganador(numeroSecreto);
-        mostrarIntentoActual(iteracion);
-        mostrarNumeroSecreto();
-    } else if (iteracion === maxIteracion) {
+    // condiciones segun el numero del usuario
+    if (numeroUsuario === numeroSecreto) { // si el numero del usuario esigual al secreto realizamos todo esto:
+        adivinado = true; // hacemos que adivinado sea true para despues validar por ejemplo en el input
+        ganador(numeroSecreto);  // llamamos a la funcion ganador con el numero para que lo muestre arriba y haga el div estilo ganador
+        mostrarIntentoActual(iteracion); // llamamos a la funcion mostrarIntentoActual con la iteracion para que muestre el intento que estamos
+        mostrarNumeroSecreto(); // mostramos el numero secreto arriba
+    } else if (iteracion === maxIteracion) { // como hemos llegado al limite de intentos mostramos el mensaje final
         mostrarMensajeFinal(numeroSecreto);
         mostrarNumeroSecreto();
         mostrarIntentoActual(iteracion);
-    } else if (iteracion < maxIteracion) {
+    } else if (iteracion < maxIteracion) { // como no lo hemos adivinado y estamos por debajo de la iteración máxima mostrará simplemente los intentos
         mostrarIntentoActual(iteracion);
     }
 
