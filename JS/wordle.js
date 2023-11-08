@@ -96,6 +96,7 @@ function mostrarMensajeFinal(numeroSecreto) {
         const intentosRestantes = maxIteracion - iteracion;
         mensajeResultado.textContent = `¡Has agotado tus intentos! El número secreto era: ${numeroSecreto}`;
         mensajeResultado.style.display = "block";
+        document.getElementById("imagenGuapa").innerHTML='<button class="botonFinalPerdedor" onClick="window.location.reload();"><img class="image" src="images/imageLisa.png"/></button> <br> <p>Dale click a la imagen o arriba a la izquierda para volver a jugar</p>';
     } else if (adivinado){
         mensajeResultado.textContent = `¡Te han sobrado ${intentosRestantes} intentos! El número secreto era: ${numeroSecreto}`;
         mensajeResultado.style.display = "block";
@@ -120,5 +121,6 @@ function ganador() {
     const mensajeResultado = document.getElementById("mensajeResultado");
     mensajeResultado.textContent = `¡HAS GANADO! Y el número secreto era: ${numeroSecreto}`;
     mensajeResultado.style.display = "block";
+    document.getElementById("imagenGuapa").innerHTML='<button class="botonFinalGanador" onClick="window.location.reload();"><img class="image" src="images/image1.png"/></button> <br> <p>Dale click a la imagen o arriba a la izquierda para volver a jugar</p>';
 }
 
